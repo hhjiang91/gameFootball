@@ -21,8 +21,8 @@ var OverScene = ns.OverScene = Hilo.Class.create({
             image: properties.imageRes,
             rect: [0, 0, 436, 341]
         });
-        getBgRes.scaleX = 1;
-        getBgRes.scaleY = 1;
+        getBgRes.scaleX = 0.7;
+        getBgRes.scaleY = 0.7;
         getBgRes.x = properties.width/2 - getBgRes.scaleX*getBgRes.width/2;
         getBgRes.y = properties.height/2 - getBgRes.scaleY*getBgRes.height/2;
 
@@ -58,13 +58,13 @@ var OverScene = ns.OverScene = Hilo.Class.create({
 
         var ballNum = new Hilo.Text({
             id: 'numShow',
-            font: "20px arial",
-            text: '点球数：20<br/>ninirty',
+            font: "17px arial",
+            text: '点球数：20<br/>ninirty<br/>ninirty',
             color:'#2d0a02',
-            lineSpacing:5
+            lineSpacing:0
         });
-        ballNum.x = getBgRes.x + getBgRes.getScaledWidth()*16/43;
-        ballNum.y = getBgRes.y + getBgRes.getScaledHeight()*19/34;
+        ballNum.x = getBgRes.x + getBgRes.getScaledWidth()*15/43;
+        ballNum.y = getBgRes.y + getBgRes.getScaledHeight()*18/34;
 
         // var ballScore = new Hilo.Text({
         //     id: 'scoreShow',

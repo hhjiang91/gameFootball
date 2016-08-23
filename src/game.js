@@ -238,7 +238,7 @@ var game = window.game = {
             imgRpl:this.asset.replay,
             imgShare:this.asset.share,
             imgHome:this.asset.home,
-            visible:false
+            visible:true
         }).addTo(this.stage);
          //绑定分享
         this.gameOverScene.getChildById('share').on(Hilo.event.POINTER_START, function(e){
