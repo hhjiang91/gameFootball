@@ -72,6 +72,7 @@ var game = window.game = {
         this.initRule();
         this.initCurrentScore();
         this.initChooseScenes();
+        this.initOverScenes();
         //准备游戏
         this.gameReady();
     },
@@ -229,7 +230,34 @@ var game = window.game = {
 
         }.bind(this));
     },
-
+    initOverScenes:function(){
+         this.gameOverScene = new game.OverScene({
+            width: this.width,
+            height: this.height,
+            imageRes: this.asset.result,
+            imgRpl:this.asset.replay,
+            imgShare:this.asset.share,
+            imgHome:this.asset.home,
+            visible:false
+        }).addTo(this.stage);
+         //绑定分享
+        this.gameOverScene.getChildById('share').on(Hilo.event.POINTER_START, function(e){
+            e._stopped = true;
+          $('#mcover').css("display","block");  
+        }.bind(this));
+        // 绑定重玩
+        this.gameOverScene.getChildById('replay').on(Hilo.event.POINTER_START, function(e){
+            e._stopped = true;
+            this.gameReady();
+            this.gameOverScene.visible = false;
+        }.bind(this));
+        // 绑定home
+        this.gameOverScene.getChildById('home').on(Hilo.event.POINTER_START, function(e){
+            e._stopped = true;
+            this.gameReady();
+            this.gameOverScene.visible = false;
+        }.bind(this));
+    },
     gameReady: function(){
         this.num = 10;
         this.score = 0;
@@ -238,6 +266,8 @@ var game = window.game = {
         this.gameReadyScene.visible = true;
         this.ball.getReady();
         this.guid.getReady();
+        this.gameReadyScene.getChildById('start').visible = true;
+        this.gameReadyScene.getChildById('foot').visible = false;
     },
 
     gameStart: function(){
@@ -277,7 +307,6 @@ var game = window.game = {
         }else{
             this.currentScore.setText(this.score);
         }
-        // this.gameReadyScene.getChildById('start').visible = true;
         this.ball.getReady();
         this.guid.getReady();
     },
@@ -289,7 +318,6 @@ var game = window.game = {
     },
     showResult: function(){
         this.gameTemp();
-        $('.last_score_high').html(this.score);
         var percentage = 0, fraction = 0;
         for(var i = this.score - 1; i >= 0; i--) {
                fraction +=  100 - Math.floor(Math.random()*40);
@@ -314,23 +342,11 @@ var game = window.game = {
         }else{
             percentage=71;
         }
-        $('.score_percentage_high').html(percentage+'%');
-        $('.score_fen_high').html(fraction);
-
-        setTimeout(
-            function(){
-                layer.open({
-                    type: 1,
-                    shade: [0.8, '#393D49'],
-                    title: false, //不显示标题
-                    content: $('#fancy-result-low'), //捕获的元素
-                    cancel: function(index){
-                      layer.close(index);
-                      location.reload();
-                    }
-                });
-            
-        },100) 
+        var str = '  点球数：' + this.score + '<br/>';
+        str += ' 分数：' + fraction + '<br/>';
+        str += '击败了' + percentage +'%的玩家';
+        this.gameOverScene.getChildById('numShow').text = str;
+        this.gameOverScene.visible = true;
     }
 };
 

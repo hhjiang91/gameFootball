@@ -27,6 +27,7 @@ body, html{height:100%;}
 <script type="text/javascript" src="src/game.js"></script>
 <script type="text/javascript" src="src/Asset.js"></script>
 <script type="text/javascript" src="src/ReadyScene.js"></script>
+<script type="text/javascript" src="src/OverScene.js"></script>
 <script type="text/javascript" src="src/Ball.js"></script>
 <script type="text/javascript" src="src/ChooseScene.js"></script>
 <script type="text/javascript" src="src/Guid.js"></script>
@@ -46,52 +47,6 @@ body, html{height:100%;}
 	<div id="mcover" onClick="document.getElementById('mcover').style.display='';" style="display:none;">
   		<img src=" images/shareInfo.png">
 	</div>
-	 <div id="fancy-result-low"  class="pop-box pop2 fancy-result-low" style="display:none;">
-      	<div class = "container">
-				<!--<div class="goal_cup"> 
-					<img src="images/03.png"/>
-				</div><!--goal_cup-->
-				<div class = "constainer1">
-					<div class="character_high">
-					    <span class="wawa_heigh">哇，中国足球有希望了</span>
-					    <span class="common">成绩：<label class="last_score_high finally"></label>个点球</span>
-						<span class="common">击败了&nbsp;<label class="score_percentage_high finally"></label>&nbsp;的玩家</span>
-						<span class="common">分数：<label class="score_fen_high finally"></label></span>
-						<!--<span class="common">喜获金球大礼包<font color="red">请到奖品中心领取</font></span>-->
-					</div><!--character_high-->
-					   
-					<div class="just_share">
-					   	<div class = "share">
-							<a href="javascript:location.reload();">
-								<div>
-									<img  src="images/agin.png"/>
-								</div>
-								<div>
-									再来一次
-								</div>
-							</a>
-					   	</div>
-					   	 <div class = "share">
-							<a href="https://i.gtja.com/promotion/olympic/index.html"> 
-							 	 <div>
-							 	 	<img class="home_high"src="images/home.png"/>
-							 	 </div>
-							</a>
-					   	 </div>
-					   	 <div class = "share">
-					   	 	<a href="javascript:weichat();">
-					   	 		<div>
-					   	 			<img src="images/share.png"/>
-					   	 		</div>
-					   	 		<div>
-					   	 			炫耀一下
-					   	 		</div>
-							</a>
-					   	 </div>
-				    </div><!--just_share-->  
-				</div> 
-			</div>
-     </div>	<!--fancy-result-low-->
 
  	<script>
 		function rotateBody(){
@@ -113,9 +68,6 @@ body, html{height:100%;}
 			    game.init(); 
 			}
 		});
-		function weichat(){
-		  $('#mcover').css("display","block");  
-		}
 	</script>
 </body>
 
