@@ -238,7 +238,7 @@ var game = window.game = {
             imgRpl:this.asset.replay,
             imgShare:this.asset.share,
             imgHome:this.asset.home,
-            visible:true
+            visible:false
         }).addTo(this.stage);
          //绑定分享
         this.gameOverScene.getChildById('share').on(Hilo.event.POINTER_START, function(e){
@@ -342,8 +342,8 @@ var game = window.game = {
         }else{
             percentage=71;
         }
-        var str = '  点球数：' + this.score + '<br/>';
-        str += ' 分数：' + fraction + '<br/>';
+        var str = '    点球数：' + this.score + '<br/>';
+        str += '     分数：' + fraction + '<br/>';
         str += '击败了' + percentage +'%的玩家';
         this.gameOverScene.getChildById('numShow').text = str;
         this.gameOverScene.visible = true;

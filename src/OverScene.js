@@ -19,7 +19,7 @@ var OverScene = ns.OverScene = Hilo.Class.create({
         var getBgRes = new Hilo.Bitmap({
             id: 'bgResult',
             image: properties.imageRes,
-            rect: [0, 0, 436, 341]
+            rect: [0, 0, 430, 333]
         });
         getBgRes.scaleX = 0.7;
         getBgRes.scaleY = 0.7;
@@ -49,7 +49,7 @@ var OverScene = ns.OverScene = Hilo.Class.create({
         var getHome = new Hilo.Bitmap({
             id: 'home',
             image: properties.imgHome,
-            rect: [0, 0, 70, 70]
+            rect: [0, 0, 60, 55]
         });
         getHome.scaleX = 0.7;
         getHome.scaleY = 0.7;
@@ -59,11 +59,11 @@ var OverScene = ns.OverScene = Hilo.Class.create({
         var ballNum = new Hilo.Text({
             id: 'numShow',
             font: "17px arial",
-            text: '点球数：20<br/>ninirty<br/>ninirty',
+            text: '    点球数：2<br/>     分数：456<br/>击败了20%的玩家',
             color:'#2d0a02',
             lineSpacing:0
         });
-        ballNum.x = getBgRes.x + getBgRes.getScaledWidth()*15/43;
+        ballNum.x = getBgRes.x + getBgRes.getScaledWidth()*13/43;
         ballNum.y = getBgRes.y + getBgRes.getScaledHeight()*18/34;
 
         // var ballScore = new Hilo.Text({
